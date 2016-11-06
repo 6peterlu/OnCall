@@ -25,9 +25,13 @@
             android:layout_height="wrap_content"
             android:background="@drawable/img_mask_circle_increct_r48_white" />
     </FrameLayout>
+
     <TextView
+        android:id="@+id/profile_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="10sp"
+        android:gravity="center_horizontal"
         android:text="Dr. Jane Doe"/>
 
 </LinearLayout>
