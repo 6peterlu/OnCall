@@ -18,14 +18,25 @@ public class Person {
     public String doctorPhoto;
     public String doctorStatus;
     public String[] topicsIds;
+    public String doctorFullName;
 
 
+    public Person (String id, String doctorStatus ,String doctorName,
+                   String doctorFamily,String doctorPhoto) {
+        this.id = id;
+        this.doctorName = doctorName;
+        this.doctorFamily = doctorFamily;
+        this.doctorStatus = doctorStatus;
+        this.doctorPhoto = doctorPhoto;
+        this.doctorFullName = this.doctorStatus+" "+this.doctorName+" "+this.doctorFamily;
+    }
     public Person parse(JSONObject json) {
         this.id = json.optString("id");
         this.doctorName = json.optString("name");
         this.doctorFamily = json.optString("family");
         this.doctorStatus = json.optString("status");
         this.doctorPhoto = json.optString("photoUrl");
+        this.doctorFullName = this.doctorStatus+" "+this.doctorName+" "+this.doctorFamily;
         JSONArray array = json.optJSONArray("topicsIds");
         try {
             this.topicsIds = new String[array.length()];

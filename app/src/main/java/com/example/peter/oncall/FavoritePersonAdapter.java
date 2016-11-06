@@ -2,12 +2,16 @@ package com.example.peter.oncall;
 
 import android.app.Activity;
 import android.support.v7.widget.RecyclerView;
+
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
+
 
 import java.util.List;
 
@@ -16,25 +20,25 @@ import java.util.List;
  */
 public class FavoritePersonAdapter extends RecyclerView.Adapter<FavoritePersonAdapter.ViewHolder> {
 
-    private List<FavoritesImage> imagesList;
+    private List<Person> mPersonList;
     private Activity mContext;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         private ImageView mImageView1;
-        private ImageView mImageView2;
-        private ImageView mImageView3;
+        private TextView mNameView;
+
 
         private ViewHolder(View v) {
             super(v);
-            mImageView1 = (ImageView) v.findViewById(R.id.image1);
-            mImageView2 = (ImageView) v.findViewById(R.id.image2);
-            mImageView3 = (ImageView) v.findViewById(R.id.image3);
+            mImageView1 = (ImageView) v.findViewById(R.id.profile_image);
+            mNameView=(TextView) v.findViewById(R.id.profile_name);
+
         }
     }
 
-    public FavoritePersonAdapter(List<FavoritesImage> imageList, Activity context) {
-        this.imagesList = imageList;
+    public FavoritePersonAdapter(List<Person> imageList, Activity context) {
+        this.mPersonList = imageList;
         mContext = context;
     }
 
@@ -47,12 +51,24 @@ public class FavoritePersonAdapter extends RecyclerView.Adapter<FavoritePersonAd
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         //I don't know what is going on :O
+        final Person person = mPersonList.get(position);
+        if (!TextUtils.isEmpty(person.doctorPhoto)) {
 
+            Glide.with(mContext)
+                    .load(mPersonList.get(position).doctorPhoto)
+                    .centerCrop()
+                    .crossFade()
+                    .into(holder.mImageView1);
+        } else {
+
+            Glide.clear(holder.mImageView1);
+        }
+        holder.mNameView.setText(person.doctorFullName);
     }
     @Override
     public int getItemCount() {
-        int result = imagesList.size() / 3;
-        return result;
+
+        return mPersonList.size();
     }
 
 
