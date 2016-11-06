@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.text.style.ImageSpan;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -61,6 +62,16 @@ public class DoctorListActivity extends Activity implements AdapterView.OnItemCl
                 TextView txtSpecialty = (TextView) convertView.findViewById(R.id.list_convert_doctor_specialty);
                 TextView txtInstitution = (TextView) convertView.findViewById(R.id.list_convet_doctor_institution);
                 RatingBar rbRatio = (RatingBar) convertView.findViewById(R.id.ratingBar1);
+                ImageView video=(ImageView)convertView.findViewById(R.id.videoCallButton);
+                video.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent launchIntent = getPackageManager().getLaunchIntentForPackage("com.quickblox.sample.groupchatwebrtc");
+                        if (launchIntent != null) {
+                            startActivity(launchIntent);//null pointer check in case package name was not found
+                        }
+                    }
+                });
 
 
                 if (!TextUtils.isEmpty(person.doctorPhoto)) {
