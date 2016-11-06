@@ -28,7 +28,6 @@ public class FavoritePersonAdapter extends RecyclerView.Adapter<FavoritePersonAd
         private ImageView mImageView1;
         private TextView mNameView;
 
-
         private ViewHolder(View v) {
             super(v);
             mImageView1 = (ImageView) v.findViewById(R.id.profile_image);
@@ -50,7 +49,6 @@ public class FavoritePersonAdapter extends RecyclerView.Adapter<FavoritePersonAd
     }
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        //I don't know what is going on :O
         final Person person = mPersonList.get(position);
         if (!TextUtils.isEmpty(person.doctorPhoto)) {
 
@@ -60,7 +58,6 @@ public class FavoritePersonAdapter extends RecyclerView.Adapter<FavoritePersonAd
                     .crossFade()
                     .into(holder.mImageView1);
         } else {
-
             Glide.clear(holder.mImageView1);
         }
         holder.mNameView.setText(person.doctorFullName);

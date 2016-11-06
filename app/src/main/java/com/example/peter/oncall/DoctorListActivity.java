@@ -1,5 +1,4 @@
 package com.example.peter.oncall;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -72,7 +71,7 @@ public class DoctorListActivity extends Activity {
                 }
                 txtName.setText(person.doctorFullName);
                 txtInstitution.setText(person.doctorInstitution);
-                txtSpecialty.setText(person.doctorSpetialty);
+                txtSpecialty.setText(person.doctorSpecialty);
                 rbRatio.setRating(person.doctorRatio);
 
                 return convertView;

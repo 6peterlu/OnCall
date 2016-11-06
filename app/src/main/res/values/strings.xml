@@ -4,4 +4,5 @@
     <string name="search_list">Search for doctors</string>
     <string name="search_button_text">Search</string>
     <string name="help_screen1_banner">Type of Help</string>
+    <string name="title_activity_profile">ProfileActivity</string>
 </resources>

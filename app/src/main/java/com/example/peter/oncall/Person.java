@@ -20,7 +20,7 @@ public class Person {
     public String[] topicsIds;
     public String doctorFullName;
     public  float doctorRatio;
-    public String doctorSpetialty;
+    public String doctorSpecialty;
     public String doctorInstitution;
 
 
@@ -32,7 +32,7 @@ public class Person {
         this.doctorStatus = doctorStatus;
         this.doctorPhoto = doctorPhoto;
         this.doctorInstitution =institution;
-        this.doctorSpetialty=spetialty;
+        this.doctorSpecialty =spetialty;
         this.doctorRatio=ratio;
 
         this.doctorFullName = this.doctorStatus+" "+this.doctorName+" "+this.doctorFamily;
@@ -44,7 +44,7 @@ public class Person {
         this.doctorStatus = json.optString("status");
         this.doctorPhoto = json.optString("photoUrl");
         this.doctorRatio=(float) json.optDouble("ratio");
-        this.doctorSpetialty=json.optString("spetialty");
+        this.doctorSpecialty =json.optString("spetialty");
         this.doctorInstitution =json.optString("intitution");
         this.doctorFullName = this.doctorStatus+" "+this.doctorName+" "+this.doctorFamily;
         JSONArray array = json.optJSONArray("topicsIds");

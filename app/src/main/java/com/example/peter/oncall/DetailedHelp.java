@@ -7,11 +7,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -33,9 +36,10 @@ public class DetailedHelp extends AppCompatActivity {
             title = incoming.getStringExtra("title");
         }
         if (incoming.hasExtra("types")) {
-            Log.d("hi", "incoming has str arraylist extra");
             listItems = incoming.getStringArrayListExtra("types");
         }
+        TextView tv = (TextView) findViewById(R.id.list_title);
+        tv.setText(title);
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, listItems);
         types.setAdapter(adapter);
     }
