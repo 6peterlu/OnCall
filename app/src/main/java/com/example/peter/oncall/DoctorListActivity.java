@@ -1,11 +1,13 @@
 package com.example.peter.oncall;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,7 +27,7 @@ import java.util.List;
  */
 
 
-public class DoctorListActivity extends Activity {
+public class DoctorListActivity extends Activity implements AdapterView.OnItemClickListener{
 
     private static final String TAG = DoctorListActivity.class.getSimpleName();
 
@@ -93,6 +95,8 @@ public class DoctorListActivity extends Activity {
 
         });
 
+        mListView.setOnItemClickListener(this);
+
         mBtnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -129,6 +133,10 @@ public class DoctorListActivity extends Activity {
         });
 
 
+    }
+    public void onItemClick(AdapterView<?> l, View v, int position, long id){
+        Intent intent = new Intent(this, ProfileActivity.class);
+        startActivity(intent);
     }
 
 

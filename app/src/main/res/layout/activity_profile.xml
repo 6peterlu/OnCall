@@ -35,17 +35,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:text="Name"/>
+            android:text="Name"
+            android:textColor="@color/colorWhite"/>
         <TextView
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:textAlignment="center"
-            android:text="Specialty"/>
+            android:text="Specialty"
+            android:textColor="@color/colorWhite"/>
         <TextView
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:textAlignment="center"
-            android:text="Institution"/>
+            android:text="Institution"
+            android:textColor="@color/colorWhite"/>
         <RatingBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -68,17 +71,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:text="Experience"/>
+            android:text="Experience"
+            android:textColor="@color/colorWhite"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:text="Accreditations"/>
+            android:text="Accreditations"
+            android:textColor="@color/colorWhite"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:text="Contact"/>
+            android:text="Contact"
+            android:textColor="@color/colorWhite"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -89,17 +95,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:text="Settings"/>
+            android:text="Settings"
+            android:textColor="@color/colorWhite"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:text="Notification"/>
+            android:text="Notification"
+            android:textColor="@color/colorWhite"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:text="Update Information"/>
+            android:text="Update Information"
+            android:textColor="@color/colorWhite"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"

@@ -58,5 +58,28 @@ public class Person {
         }
         return this;
     }
-
+    public String getID() {
+        return id;
+    }
+    public String getDoctorName() {
+        return doctorName;
+    }
+    public String getDoctorFamily() {
+        return doctorFamily;
+    }
+    public String getDoctorPhoto() {
+        return doctorPhoto;
+    }
+    public String getDoctorStatus() {
+        return doctorStatus;
+    }
+    public String getDoctorFullName() {
+        return doctorFullName;
+    }
+    public String getDoctorSpecialty() {
+        return doctorSpecialty;
+    }
+    public String getDoctorInstitution() {
+        return doctorInstitution;
+    }
 }
