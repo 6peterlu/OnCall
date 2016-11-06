@@ -2,14 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorWhite"
     android:weightSum="1">
 
     <LinearLayout
-        android:id="@+id/list_convert_course_container"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
         android:orientation="horizontal"
-        android:layout_weight="0.01">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
 
         <FrameLayout
             android:id="@+id/icon_frame"
@@ -20,7 +20,7 @@
             android:layout_alignParentTop="true">
 
             <ImageView
-                android:id="@+id/list_convert_course_image"
+                android:id="@+id/doctor_photo"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:background="#cccc"
@@ -48,7 +48,9 @@
                 android:maxLines="3"
                 android:text="Doctor"
                 android:textColor="@color/textColor"
-                android:textSize="16sp" />
+                android:layout_marginTop="2dp"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/list_convert_doctor_spetialty"
@@ -56,6 +58,7 @@
                 android:layout_height="wrap_content"
                 android:text="Specialty"
                 android:textColor="@color/textColor"
+                android:layout_marginTop="2dp"
                 android:textSize="16sp"
                 />
             <TextView
@@ -64,12 +67,14 @@
                 android:layout_height="wrap_content"
                 android:text="instutution"
                 android:textColor="@color/textColor"
+                android:layout_marginTop="2dp"
                 android:textSize="16sp"
                 />
             <RatingBar
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/ratingBar2"
+                android:id="@+id/ratingBar1"
+                android:layout_marginTop="2dp"
                 style="?android:attr/ratingBarStyleSmall"
 
                 android:numStars="5"
@@ -80,5 +85,4 @@
         </LinearLayout>
 
     </LinearLayout>
-
 </LinearLayout>

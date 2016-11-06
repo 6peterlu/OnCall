@@ -19,15 +19,22 @@ public class Person {
     public String doctorStatus;
     public String[] topicsIds;
     public String doctorFullName;
+    public  float doctorRatio;
+    public String doctorSpetialty;
+    public String doctorInstitution;
 
 
     public Person (String id, String doctorStatus ,String doctorName,
-                   String doctorFamily,String doctorPhoto) {
+                   String doctorFamily,String doctorPhoto,String institution,String spetialty,float ratio) {
         this.id = id;
         this.doctorName = doctorName;
         this.doctorFamily = doctorFamily;
         this.doctorStatus = doctorStatus;
         this.doctorPhoto = doctorPhoto;
+        this.doctorInstitution =institution;
+        this.doctorSpetialty=spetialty;
+        this.doctorRatio=ratio;
+
         this.doctorFullName = this.doctorStatus+" "+this.doctorName+" "+this.doctorFamily;
     }
     public Person parse(JSONObject json) {
@@ -36,6 +43,9 @@ public class Person {
         this.doctorFamily = json.optString("family");
         this.doctorStatus = json.optString("status");
         this.doctorPhoto = json.optString("photoUrl");
+        this.doctorRatio=(float) json.optDouble("ratio");
+        this.doctorSpetialty=json.optString("spetialty");
+        this.doctorInstitution =json.optString("intitution");
         this.doctorFullName = this.doctorStatus+" "+this.doctorName+" "+this.doctorFamily;
         JSONArray array = json.optJSONArray("topicsIds");
         try {
