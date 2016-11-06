@@ -12,6 +12,7 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -97,6 +98,19 @@ public class DoctorListActivity extends Activity implements AdapterView.OnItemCl
 
         mListView.setOnItemClickListener(this);
 
+mListView.setOnTouchListener( new SwipeDetector(getApplication()) {
+
+            public void onSwipeRight() {
+                LinearLayout lay=(LinearLayout)findViewById(R.id.callLL);
+                lay.setVisibility(View.GONE);
+            }
+            public void onSwipeLeft() {
+                LinearLayout lay=(LinearLayout)findViewById(R.id.callLL);
+                lay.setVisibility(View.VISIBLE);
+            }
+
+
+        });
         mBtnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -145,6 +159,7 @@ public class DoctorListActivity extends Activity implements AdapterView.OnItemCl
         intent.putExtra("contact", chosen.getContact());
         intent.putExtra("photo", chosen.getDoctorPhoto());
         startActivity(intent);
+
     }
 
 

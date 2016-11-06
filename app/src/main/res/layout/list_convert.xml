@@ -35,7 +35,7 @@
 
         <LinearLayout
             android:orientation="vertical"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:paddingRight="16dp"
@@ -83,6 +83,31 @@
                 />
 
         </LinearLayout>
+        <LinearLayout
+            android:id="@+id/callLL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginRight="4dp"
+            android:gravity="right"
+            android:orientation="horizontal"
+android:visibility="gone"
 
+            >
+
+            <ImageView
+                android:id="@+id/audioCallButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/audio" />
+
+            <ImageView
+                android:id="@+id/videoCallButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/video" />
+        </LinearLayout>
     </LinearLayout>
+
 </LinearLayout>

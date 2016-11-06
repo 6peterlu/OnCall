@@ -1,89 +1,76 @@
 package com.example.peter.oncall;
 
-import android.util.Log;
+import android.content.Context;
+import android.view.GestureDetector;
+import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnTouchListener;
 
+public class SwipeDetector implements OnTouchListener {
 
+    private final GestureDetector gestureDetector;
 
-/**
- * Created by Enuviel on 11/5/16.
- */
-
-public class SwipeDetector implements View.OnTouchListener {
-
-    public static enum Action {
-        LR, // Left to Right
-        RL, // Right to Left
-        TB, // Top to bottom
-        BT, // Bottom to Top
-        None // when no action was detected
+    public SwipeDetector (Context ctx){
+        gestureDetector = new GestureDetector(ctx, new GestureListener());
     }
 
-    private static final String TAG = SwipeDetector.class.getSimpleName();
-    private static final int MIN_DISTANCE = 100;
-    private float downX, downY, upX, upY;
-    private Action mSwipeDetected = Action.None;
-
-    public boolean swipeDetected() {
-        return mSwipeDetected != Action.None;
-    }
-
-    public Action getAction() {
-        return mSwipeDetected;
-    }
-
+    @Override
     public boolean onTouch(View v, MotionEvent event) {
-        switch (event.getAction()) {
-            case MotionEvent.ACTION_DOWN: {
-                downX = event.getX();
-                downY = event.getY();
-                mSwipeDetected = Action.None;
-                return false; // allow other events like Click to be processed
-            }
-            case MotionEvent.ACTION_MOVE: {
-                upX = event.getX();
-                upY = event.getY();
+        return gestureDetector.onTouchEvent(event);
+    }
 
-                float deltaX = downX - upX;
-                float deltaY = downY - upY;
+    private final class GestureListener extends SimpleOnGestureListener {
 
-                // horizontal swipe detection
-                if (Math.abs(deltaX) > MIN_DISTANCE) {
-                    // left or right
-                    if (deltaX < 0) {
+        private static final int SWIPE_THRESHOLD = 100;
+        private static final int SWIPE_VELOCITY_THRESHOLD = 100;
 
-                        Log.w(TAG,"Swipe Left to Right");
-                        mSwipeDetected = Action.LR;
-                        return true;
-                    }
-                    if (deltaX > 0) {
-
-                        Log.w(TAG,"Swipe Right to Left");
-                        mSwipeDetected = Action.RL;
-                        return true;
-                    }
-                } else
-
-                    // vertical swipe detection
-                    if (Math.abs(deltaY) > MIN_DISTANCE) {
-                        // top or down
-                        if (deltaY < 0) {
-
-                            Log.w(TAG,"Swipe Top to Bottom");
-                            mSwipeDetected = Action.TB;
-                            return false;
-                        }
-                        if (deltaY > 0) {
-
-                            Log.w(TAG,"Swipe Bottom to Top");
-                            mSwipeDetected = Action.BT;
-                            return false;
-                        }
-                    }
-                return true;
-            }
+        @Override
+        public boolean onDown(MotionEvent e) {
+            return true;
         }
-        return false;
+
+        @Override
+        public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+            boolean result = false;
+            try {
+                float diffY = e2.getY() - e1.getY();
+                float diffX = e2.getX() - e1.getX();
+                if (Math.abs(diffX) > Math.abs(diffY)) {
+                    if (Math.abs(diffX) > SWIPE_THRESHOLD && Math.abs(velocityX) > SWIPE_VELOCITY_THRESHOLD) {
+                        if (diffX > 0) {
+                            onSwipeRight();
+                        } else {
+                            onSwipeLeft();
+                        }
+                    }
+                    result = true;
+                }
+                else if (Math.abs(diffY) > SWIPE_THRESHOLD && Math.abs(velocityY) > SWIPE_VELOCITY_THRESHOLD) {
+                    if (diffY > 0) {
+                        onSwipeBottom();
+                    } else {
+                        onSwipeTop();
+                    }
+                }
+                result = true;
+
+            } catch (Exception exception) {
+                exception.printStackTrace();
+            }
+            return result;
+        }
+    }
+
+    public void onSwipeRight() {
+    }
+
+    public void onSwipeLeft() {
+    }
+
+    public void onSwipeTop() {
+    }
+
+    public void onSwipeBottom() {
     }
 }
