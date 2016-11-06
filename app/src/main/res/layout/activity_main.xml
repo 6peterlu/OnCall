@@ -3,7 +3,6 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@color/colorWhite"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
@@ -17,10 +16,10 @@
             android:text="Home" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/categories"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Specialties" />
+            android:text="Categories" />
 
         <Button
 

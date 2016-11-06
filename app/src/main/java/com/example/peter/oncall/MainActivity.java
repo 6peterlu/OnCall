@@ -1,17 +1,17 @@
 package com.example.peter.oncall;
 
 
-        import android.content.Intent;
+import android.content.Intent;
 
-        import android.support.v7.app.AppCompatActivity;
-        import android.os.Bundle;
-        import android.support.v7.widget.LinearLayoutManager;
-        import android.support.v7.widget.RecyclerView;
-        import android.view.View;
-        import android.widget.Button;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.Button;
 
-        import java.util.ArrayList;
-        import java.util.List;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -20,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
     public static List<Person> mPersonList = new ArrayList<>();
     private FavoritePersonAdapter mFavoritePersonAdapter;
     private RecyclerView mRvImages;
-    private Button buttonClick;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -40,6 +39,14 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), DoctorListActivity.class);
                 startActivity(intent);
 
+            }
+        });
+        Button btnCategories = (Button) findViewById(R.id.categories);
+        btnCategories.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(getApplicationContext(), TypeOfHelp.class);
+                startActivity(intent);
             }
         });
 
