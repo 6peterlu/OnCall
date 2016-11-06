@@ -36,19 +36,22 @@
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:text="Name"
-            android:textColor="@color/colorWhite"/>
+            android:textColor="@color/colorWhite"
+            android:id="@+id/name" />
         <TextView
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:textAlignment="center"
             android:text="Specialty"
-            android:textColor="@color/colorWhite"/>
+            android:textColor="@color/colorWhite"
+            android:id="@+id/specialty" />
         <TextView
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:textAlignment="center"
             android:text="Institution"
-            android:textColor="@color/colorWhite"/>
+            android:textColor="@color/colorWhite"
+            android:id="@+id/institution" />
         <RatingBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -72,14 +75,17 @@
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:text="Experience"
-            android:textColor="@color/colorWhite"/>
+            android:textColor="@color/colorWhite"
+            android:id="@+id/experience" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:text="Accreditations"
-            android:textColor="@color/colorWhite"/>
+            android:textColor="@color/colorWhite"
+            android:id="@+id/accreditations" />
         <TextView
+            android:id="@+id/contact"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"

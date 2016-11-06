@@ -136,8 +136,17 @@ public class DoctorListActivity extends Activity implements AdapterView.OnItemCl
     }
     public void onItemClick(AdapterView<?> l, View v, int position, long id){
         Intent intent = new Intent(this, ProfileActivity.class);
+        Person chosen = mPersonList.get(position);
+        intent.putExtra("name", chosen.getDoctorName());
+        intent.putExtra("specialty", chosen.getDoctorSpecialty());
+        intent.putExtra("rating", chosen.getDoctorRatio());
+        intent.putExtra("experience", chosen.getYearsOfExperience());
+        intent.putExtra("accreditations", chosen.getAccreditations());
+        intent.putExtra("contact", chosen.getContact());
+        intent.putExtra("photo", chosen.getDoctorPhoto());
         startActivity(intent);
     }
+
 
 
 }
