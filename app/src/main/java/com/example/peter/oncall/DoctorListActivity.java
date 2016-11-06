@@ -56,7 +56,7 @@ public class DoctorListActivity extends Activity {
 
                 ImageView imgPhoto = (ImageView) convertView.findViewById(R.id.doctor_photo);
                 TextView txtName = (TextView) convertView.findViewById(R.id.list_convert_doctor_name);
-                TextView txtSpetialty = (TextView) convertView.findViewById(R.id.list_convert_doctor_spetialty);
+                TextView txtSpecialty = (TextView) convertView.findViewById(R.id.list_convert_doctor_specialty);
                 TextView txtInstitution = (TextView) convertView.findViewById(R.id.list_convet_doctor_institution);
                 RatingBar rbRatio = (RatingBar) convertView.findViewById(R.id.ratingBar1);
 
@@ -72,7 +72,7 @@ public class DoctorListActivity extends Activity {
                 }
                 txtName.setText(person.doctorFullName);
                 txtInstitution.setText(person.doctorInstitution);
-                txtSpetialty.setText(person.doctorSpetialty);
+                txtSpecialty.setText(person.doctorSpetialty);
                 rbRatio.setRating(person.doctorRatio);
 
                 return convertView;
