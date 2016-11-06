@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:id="@+id/list_convert_course_container"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        android:layout_weight="0.01">
+
+        <FrameLayout
+            android:id="@+id/icon_frame"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_margin="16dp"
+            android:layout_gravity="center_vertical"
+            android:layout_alignParentTop="true">
+
+            <ImageView
+                android:id="@+id/list_convert_course_image"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="#cccc"
+                android:scaleType="centerCrop"/>
+
+            <ImageView
+                android:id="@+id/icon_mask"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/img_mask_circle_increct_r48_white" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingRight="16dp"
+            >
+
+            <TextView
+                android:id="@+id/list_convert_doctor_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="3"
+                android:text="Doctor"
+                android:textColor="@color/textColor"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/list_convert_doctor_spetialty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Specialty"
+                android:textColor="@color/textColor"
+                android:textSize="16sp"
+                />
+            <TextView
+                android:id="@+id/list_convet_doctor_institution"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="instutution"
+                android:textColor="@color/textColor"
+                android:textSize="16sp"
+                />
+            <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ratingBar2"
+                style="?android:attr/ratingBarStyleSmall"
+
+                android:numStars="5"
+                android:rating="4.3"
+                android:stepSize="0.1"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">OnCall</string>
+    <string name="search_list">Search for doctors</string>
+    <string name="search_button_text">Search</string>
 </resources>
