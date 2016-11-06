@@ -1,65 +1,67 @@
 package com.example.peter.oncall;
 
-import android.app.ActionBar;
-import android.content.Intent;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.View;
-import android.widget.Button;
 
-import java.util.ArrayList;
-import java.util.List;
+        import android.content.Intent;
 
-import static com.example.peter.oncall.R.styleable.RecyclerView;
+        import android.support.v7.app.AppCompatActivity;
+        import android.os.Bundle;
+        import android.support.v7.widget.LinearLayoutManager;
+        import android.support.v7.widget.RecyclerView;
+        import android.view.View;
+        import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+        import java.util.ArrayList;
+        import java.util.List;
+
+
+public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
 
-    private List<Person> mPersonList = new ArrayList<>();
+    public static List<Person> mPersonList = new ArrayList<>();
     private FavoritePersonAdapter mFavoritePersonAdapter;
     private RecyclerView mRvImages;
     private Button buttonClick;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        buttonClick = (Button) findViewById(R.id.search);
-        buttonClick.setOnClickListener(this);
+
         createListOfPersons();
         mFavoritePersonAdapter = new FavoritePersonAdapter(mPersonList, MainActivity.this);
-        final LinearLayoutManager llManager =new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        final LinearLayoutManager llManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         mRvImages = (RecyclerView) findViewById(R.id.recycleFavorites);
         mRvImages.setLayoutManager(llManager);
         mRvImages.setAdapter(mFavoritePersonAdapter);
+        Button btnSearch = (Button) findViewById(R.id.buttonSearch);
+        btnSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), DoctorListActivity.class);
+                startActivity(intent);
+
+            }
+        });
 
     }
 
-    public void onClick(View view){
-        if(view == buttonClick){
-            Intent intent = new Intent(this, DoctorListActivity.class);
-            startActivity(intent);
-        }
-    }
     public void createListOfPersons() {
-        Person anna=new Person("1","Dr.","Anna","Orlova","");
-        Person peter=new Person("2","MD","Peter","Lu","");
-        Person mike=new Person("3","MD","Mike","Hittle","");
-        Person annie=new Person("3","MD","Annie","Brantigan","");
-        Person james = new Person("4", "MD", "James", "Wall", "");
-        Person jeremy = new Person("5", "PhD", "Jeremy", "Hammer", "");
-        Person michelle = new Person("6", "MD", "Michelle", "Essien", "");
-        Person anthony = new Person("7", "MD", "Anthony", "Agbay", "");
-        mPersonList.add(anna);
-        mPersonList.add(peter);
-        mPersonList.add(mike);
+        Person james = new Person("10", "MD", "James", "Wall", "https://cap.stanford.edu/profiles/viewImage?profileId=40307&type=square", "Stanford University", "Pediatric Surgery", 5f);
+        Person annie = new Person("5", "MD", "Annie", "Brantigan", "https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAemAAAAJDc1ZWZmMmUzLTNhNTEtNDk5Yi04ZjRiLWU4NWE2YTI3MWZjZQ.jpg", "Stanford University", "General Surgery", 5f);
+        Person peter = new Person("2", "MD", "Peter", "Lu", "https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAVLAAAAJDY2YjExYjVlLWJhZmYtNGNiZC04MjgzLTc5YTcxNjE1NWRkNg.jpg", "Stanford University", "Head and Neck Surgery", 4.5f);
+        Person jeremy = new Person("6", "MD", "Jeremy", "Hammer", "https://media.licdn.com/media/AAEAAQAAAAAAAAJ6AAAAJDIyNmNmMWI2LTQzNDctNDk0Yi05YzBmLTJjMWQwNDI3MGZjMA.jpg", "Berkley University", "General Surgery", 4.1f);
+        Person mike = new Person("3", "MD", "Mike", "Hittle", "https://media.licdn.com/media/p/4/000/179/0c5/21f846c.jpg", "Stanford University", "General Surgery", 4f);
+        Person anna = new Person("1", "Dr.", "Anna", "Orlova", "https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAMHAAAAJDgzN2JjY2IyLTYyYjMtNDRiYi04N2YxLWViMDdiNzM0MzE0NA.jpg", "Self Emploed", "Surgery", 0f);
+        Person michelle = new Person("9", "MD", "Michelle", "Essien", "https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAiYAAAAJGY4YzM1MzViLTE5M2EtNGQxZi1hNzQyLTA2ZmU5ZDM1Yjk3Yg.jpg", "Stanford University", "General Surgery", 0f);
+        Person anthony = new Person("8", "MD", "Anthony", "Agbay", "https://media.licdn.com/media/p/6/005/079/1eb/03d7235.jpg", "Stanford University", "Head and Neck Surgery", 0f);
+        mPersonList.add(james);
         mPersonList.add(annie);
+        mPersonList.add(peter);
         mPersonList.add(jeremy);
+        mPersonList.add(mike);
+        mPersonList.add(anna);
         mPersonList.add(michelle);
         mPersonList.add(anthony);
-        mPersonList.add(james);
 
     }
 

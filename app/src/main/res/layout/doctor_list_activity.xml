@@ -3,6 +3,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorWhite"
     >
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -17,7 +18,7 @@
         >
 
         <EditText
-            android:id="@+id/activity_main_edit_text_search"
+            android:id="@+id/searchText"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_gravity="center"
@@ -33,7 +34,7 @@
             />
 
         <Button
-            android:id="@+id/activity_main_button_search"
+            android:id="@+id/btnSearch"
             android:layout_width="80dp"
             android:layout_height="40dp"
             android:layout_gravity="center_horizontal"
@@ -44,7 +45,7 @@
     </LinearLayout>
 
     <ListView
-        android:id="@+id/activity_main_courses_list"
+        android:id="@+id/doctors_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorWhite"

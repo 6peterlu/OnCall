@@ -5,8 +5,8 @@ android {
     buildToolsVersion "23.0.2"
     defaultConfig {
         applicationId "com.example.peter.oncall"
-        minSdkVersion 21
-        targetSdkVersion 24
+        minSdkVersion 18
+        targetSdkVersion 22
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
